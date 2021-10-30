@@ -1,9 +1,13 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, StatusBar } from 'react-native';
+import Header from './src/Components/Header';
+import { colors,parameters } from './src/Global/styles';
+
 
 const styles = StyleSheet.create({
-  center: {
-    alignItems: 'center',
+  container: {
+    flex: 1,
+    alignItems: "center"
   }
 });
 
@@ -17,12 +21,19 @@ const Greeting = (props) => {
 
 const App = () => {
   return (
-    <View style={[styles.center, {top: 50}]}>
+    <View style={styles.container}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor= {colors.statusBar}
+      />
+      <Header title="KAN KARDEŞİM"/>
       <Greeting name='Kan' />
       <Greeting name='Kardeşim' />
       <Greeting name='Mobil' />
     </View>
   );
 }
+
+
 
 export default App;

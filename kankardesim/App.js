@@ -1,19 +1,12 @@
 import React from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
-import Header from './src/Components/Header';
-import { colors,parameters } from './src/Global/styles';
+import { colors, parameters } from './src/Global/styles';
+import SignInScreen from './src/Screens/authScreens/SignInScreen';
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center"
-  }
-});
 
 const Greeting = (props) => {
   return (
-    <View style={styles.center}>
+    <View style={styles.container}>
       <Text>Hello {props.name}!</Text>
     </View>
   );
@@ -26,14 +19,17 @@ const App = () => {
         barStyle="light-content"
         backgroundColor= {colors.statusBar}
       />
-      <Header title="KAN KARDEŞİM"/>
-      <Greeting name='Kan' />
-      <Greeting name='Kardeşim' />
-      <Greeting name='Mobil' />
+      <SignInScreen/>
+      
     </View>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+});
 
 
 export default App;

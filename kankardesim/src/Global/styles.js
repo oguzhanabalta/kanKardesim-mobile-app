@@ -15,3 +15,12 @@ export const parameters = {
     headerHeight: 50,
     headerWidth: "100%"
 }
+
+export const title = {
+    color: "#ff211a",
+    titleText: 20,
+    titleFont: "bold",
+    
+
+
+}

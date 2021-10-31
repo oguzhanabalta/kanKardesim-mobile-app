@@ -6,7 +6,7 @@ import * as Animatable from 'react-native-animatable';
 import { Icon, Button, SocialIcon } from 'react-native-elements';
 
 
-export default function SignInScreen () {
+export default function SignInScreen ({navigation}) {
     
     const[textInput2Fossued, setTextInput2Fossued]= useState(false)
 
@@ -17,7 +17,7 @@ export default function SignInScreen () {
     
     return(
         <View style= {styles.container}>
-          <Header title="KAN KARDEŞİM" type="arrow-left"/>
+          <Header title="KAN KARDEŞİM" type="arrow-left" navigation={navigation}/>
           <View style={{marginLeft:20, marginTop:10}}>
               <Text style={title}>Giriş Yap</Text>
           </View>
@@ -67,6 +67,7 @@ export default function SignInScreen () {
                 title="Giriş Yap"
                 buttonStyle={parameters.styledButton}
                 titleStyle={parameters.buttonTitle}
+                onPress={()=>{navigation.navigate('HomeScreen')}}
               />
           </View>
           <View style={{alignItems:"center", marginTop:20}}>

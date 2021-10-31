@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TextInput, ImageBackground } from 'react-native';
 import { colors,parameters, title } from '../../Global/styles';
 import Header from '../../Components/Header';
 import * as Animatable from 'react-native-animatable';
@@ -37,7 +37,7 @@ export default function SignInScreen () {
                 <Animatable.View>
                     <Icon
                         name="lock"
-                        iconStyle={{color:colors.grey3}}
+                        iconStyle={{color:colors.grey5}}
                         type="material"
                     />
                 </Animatable.View>
@@ -55,7 +55,7 @@ export default function SignInScreen () {
                 <Animatable.View animation = {textInput2Fossued ? "" : "fadeInLeft"} duration={400}>
                     <Icon
                         name="visibility-off"
-                        iconStyle={{color:colors.grey3}}
+                        iconStyle={{color:colors.grey5}}
                         type="material"
                         style={{marginRight:15}}
                     />
@@ -70,7 +70,7 @@ export default function SignInScreen () {
               />
           </View>
           <View style={{alignItems:"center", marginTop:20}}>
-              <Text style={{...styles.text1, textDecorationLine:"underline"}}>Şifremi Unuttum</Text>
+              <Text style={{...styles.text2, textDecorationLine:"underline"}}>Şifremi Unuttum</Text>
           </View>
           <View style={{alignItems:"center", marginTop:20}}>
               <Text style={{fontSize:20, fontWeight:"bold"}}>VEYA</Text>
@@ -103,12 +103,9 @@ export default function SignInScreen () {
               <Button
                 title="Kayıt Ol"
                 buttonStyle={parameters.styledButton}
-                titleStyle={parameters.buttonTitle}
+                //titleStyle={parameters.buttonTitle}
               />
           </View>
-          
-          
-
         </View>
     )
 }
@@ -121,10 +118,14 @@ const styles = StyleSheet.create({
         color:colors.grey3,
         fontSize:16,
     },
+    text2:{
+        color:colors.grey1,
+        fontSize:16,
+    },
 
     textInput1:{
         borderWidth:1,
-        borderColor:"#86939e",
+        borderColor:colors.grey5,
         marginHorizontal:20,
         borderRadius:12,
         marginBottom:20,
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     },
     textInput2:{
         borderWidth:1,
-        borderColor:"#86939e",
+        borderColor:colors.grey5,
         marginHorizontal:20,
         borderRadius:12,
         marginBottom:20,

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import { colors, parameters } from './src/Global/styles';
 import SignInScreen from './src/Screens/authScreens/SignInScreen';
+import WelcomeScreen from './src/Screens/authScreens/WelcomeScreen';
 
 
 const Greeting = (props) => {
@@ -19,7 +20,7 @@ const App = () => {
         barStyle="light-content"
         backgroundColor= {colors.statusBar}
       />
-      <SignInScreen/>
+      <WelcomeScreen/>
       
     </View>
   );

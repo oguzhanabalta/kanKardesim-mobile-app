@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
 import { colors,parameters, title } from '../../Global/styles';
 import Header from '../../Components/Header';
 import * as Animatable from 'react-native-animatable';
-import { Icon } from 'react-native-elements';
+import { Icon, Button, SocialIcon } from 'react-native-elements';
 
 
 export default function SignInScreen () {
@@ -29,7 +29,7 @@ export default function SignInScreen () {
               <View>
                   <TextInput
                     style={styles.textInput1}
-                    placeholder="Telefon Numarası"
+                    placeholder="Email"
                     ref={textInput1}
                   />
               </View>
@@ -62,6 +62,53 @@ export default function SignInScreen () {
                 </Animatable.View>
               </View>
           </View>
+          <View style={{marginHorizontal:20, marginVertical:10}}>
+              <Button
+                title="Giriş Yap"
+                buttonStyle={parameters.styledButton}
+                titleStyle={parameters.buttonTitle}
+              />
+          </View>
+          <View style={{alignItems:"center", marginTop:20}}>
+              <Text style={{...styles.text1, textDecorationLine:"underline"}}>Şifremi Unuttum</Text>
+          </View>
+          <View style={{alignItems:"center", marginTop:20}}>
+              <Text style={{fontSize:20, fontWeight:"bold"}}>VEYA</Text>
+          </View>
+          <View>
+              <SocialIcon
+                title="Facebook hesabın ile giriş yap"
+                button
+                type="facebook"
+                onPress={()=>{}}
+              />
+          </View>
+          <View>
+              <SocialIcon
+                title="Twitter hesabın ile giriş yap"
+                button
+                type="twitter"
+                onPress={()=>{}}
+              />
+          </View>
+          <View>
+              <SocialIcon
+                title="Google hesabın ile giriş yap"
+                button
+                type="google"
+                onPress={()=>{}}
+              />
+          </View>
+          <View style={{marginHorizontal:100}}>
+              <Button
+                title="Kayıt Ol"
+                buttonStyle={parameters.styledButton}
+                titleStyle={parameters.buttonTitle}
+              />
+          </View>
+          
+          
+
         </View>
     )
 }
@@ -95,5 +142,6 @@ const styles = StyleSheet.create({
         alignItems:"center",
         paddingLeft:15,
     },
+    
 
 })

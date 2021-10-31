@@ -55,8 +55,6 @@ export const parameters = {
 
 export const title = {
     color: "#dc2619",
-    titleText: 20,
-    titleFont: "bold",
     
 
 

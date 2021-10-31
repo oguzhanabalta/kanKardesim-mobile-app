@@ -7,7 +7,7 @@ import { Icon, Button, SocialIcon } from 'react-native-elements';
 import Swiper from 'react-native-swiper';
 
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
     return(
         <ImageBackground source={require('../../Assets/image/back.png')} style={{flex:1}}  >
         <View style={{flex:1}}>
@@ -52,6 +52,9 @@ export default function WelcomeScreen() {
                         title="Giriş Yap"
                         buttonStyle={parameters.styledButton}
                         titleStyle={parameters.buttonTitle}
+                        onPress={()=>{
+                            navigation.navigate("SignInScreen")
+                        }}
                     />                
                 </View>
                 <View style={{marginHorizontal:20, marginVertical:10, borderColor:"#dc2619", borderWidth:2, borderRadius:30}}>

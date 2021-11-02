@@ -12,8 +12,9 @@ const ClientTabs = createBottomTabNavigator();
 export default function RootClientTabs(){
     return(
         <ClientTabs.Navigator
-            tabBarOptions = {{
-                activeTintColor:colors.buttons
+            screenOptions = {{
+                tabBarActiveTintColor:colors.buttons
+                
             }}
         
         >

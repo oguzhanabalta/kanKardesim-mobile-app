@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, FlatList, Pressable,Image } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, FlatList, Pressable,Image, Dimensions } from "react-native";
 import { Icon } from "react-native-elements";
 import HomeHeader from "../Components/HomeHeader";
 import { colors, parameters } from "../Global/styles";
-import {menuData} from "../Global/data";
+import {menuData, kanBekleyenData} from "../Global/data";
+import WaitingBloodCard from "../Components/WaitingBloodCard";
 
-
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 export default function HomeScreen() {
+
 
     const [kanara, setKanara] = useState(true)
     const [indexCheck, setIndexCheck] = useState("0")
@@ -81,7 +83,7 @@ export default function HomeScreen() {
                                     </View>
                             </View>
                         </View>
-                        <View style={styles.kategorilerView}>
+                        <View style={styles.headerBarView}>
                             <Text style={{color:"black", fontSize:16, fontWeight:"800"}}>Kategoriler</Text>
                         </View>
                         <View>
@@ -109,6 +111,32 @@ export default function HomeScreen() {
                                         </View>
                                     </Pressable>
                                 )}
+                            />
+                        </View>
+                        <View style={styles.headerBarView}>
+                            <Text style={{color:"black", fontSize:16, fontWeight:"800"}}>Kan Bekleyenler</Text>
+                        </View>
+                        <View>
+                            <FlatList
+                                style={{marginTop:10, marginBottom:10}}
+                                horizontal={true}
+                                data={kanBekleyenData}
+                                keyExtractor={(item, index)=>index.toString()}
+                                renderItem={({item})=>(
+                                    <View>
+                                        <WaitingBloodCard
+                                            screenWidth = {SCREEN_WIDTH*0.8}
+                                            hospitalImages= {item.hospitalImages}
+                                            hospitalName={item.hospitalName}
+                                            address={item.address}
+                                            distance={item.distance}
+                                            baslik={item.baslik}
+                                            kanGrubu={item.kanGrubu}
+                                            tarih={item.tarih}
+                                        />
+                                    </View>
+                                )}
+
                             />
                         </View>
                         
@@ -164,7 +192,7 @@ const styles = StyleSheet.create({
          paddingHorizontal:10, 
          width:"25%"
     },
-    kategorilerView:{
+    headerBarView:{
         backgroundColor:colors.grey5, 
         marginTop:20, 
         paddingHorizontal:15, 

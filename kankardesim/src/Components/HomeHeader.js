@@ -27,8 +27,8 @@ const BadgeIcon=withBadge(1)(Icon)
             <View style={{marginRight:15, flexDirection:"row",}}>
                 <View>
                     <Icon
-                            type="Ionicons"
-                            name="notifications"
+                            type="material"
+                            name="person"
                             color={colors.headerText}
                             size={30}
                     />

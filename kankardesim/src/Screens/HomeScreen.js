@@ -19,7 +19,7 @@ export default function HomeScreen() {
             <View style={styles.container}>
                 <HomeHeader title="Anasayfa" />
                 <ScrollView
-                    stickyHeaderIndices={[0]}
+                    stickyHeaderIndices={[1]}
                     showsVerticalScrollIndicator={true}
                 >
                     <View>
@@ -142,7 +142,6 @@ export default function HomeScreen() {
                         
                     </View>
                 </ScrollView>
-
 
             </View>
         </ImageBackground>

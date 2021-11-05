@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, FlatList, Pressable,Image, Dimensions } from "react-native";
-import { Icon } from "react-native-elements";
+import { Icon, Button } from "react-native-elements";
 import HomeHeader from "../Components/HomeHeader";
-import { colors, parameters } from "../Global/styles";
+import { colors,parameters } from "../Global/styles";
 import {menuData, kanBekleyenData} from "../Global/data";
 import WaitingBloodCard from "../Components/WaitingBloodCard";
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
 
 
     const [kanara, setKanara] = useState(true)
@@ -30,7 +30,7 @@ export default function HomeScreen() {
                                 }}
                             >
                                 <View style={{ ...styles.kanAraButton, backgroundColor: kanara ? "black" : "white" }}>
-                                    <Text style={styles.kanAraText}>Kan Ara</Text>
+                                    <Text style={styles.kanAraText}>Kan Ver</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -39,7 +39,7 @@ export default function HomeScreen() {
                                 }}
                             >
                                 <View style={{ ...styles.kanBulButton, backgroundColor: kanara ? "white" : "black" }}>
-                                    <Text style={styles.kanBulText}>Kan Ver</Text>
+                                    <Text style={styles.kanBulText}>Kan Ara</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
@@ -113,9 +113,12 @@ export default function HomeScreen() {
                                 )}
                             />
                         </View>
+                        
                         <View style={styles.headerBarView}>
-                            <Text style={{color:"black", fontSize:16, fontWeight:"800"}}>Kan Bekleyenler</Text>
+                            <Text style={{color:"black", fontSize:16, fontWeight:"800"}}>{kanara? "Kan Bekleyenler": "Hemen Kan İlanı Oluştur"}</Text>
                         </View>
+                        
+                        { kanara ?
                         <View>
                             <FlatList
                                 style={{marginTop:10, marginBottom:10}}
@@ -138,10 +141,50 @@ export default function HomeScreen() {
                                 )}
 
                             />
+                        </View> : 
+                        <View>
+                            <View style={{marginHorizontal:20, marginVertical:10}}>
+                                <Button
+                                    title="Kan İlanı Oluştur"
+                                    buttonStyle={parameters.styledButton}
+                                    titleStyle={parameters.buttonTitle}
+                                    onPress={()=>{navigation.navigate('BloodFindScreen')}}
+                                    
+                                />
+                            </View>
+                            <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+                                <Icon
+                                        name="create"
+                                />
+                                <View style={{margin:10}}>
+                                    <Text style={{color:colors.buttons, fontSize:10}}> * Kan ilanı oluştururken telefon numarası, kan grubu ve konum bilgilerini eksiksiz ve anlaşılır şekilde girmeye lütfen özen gösterin.</Text>
+                                    <Text style={{color:colors.buttons, fontSize:10}}> * Kan ilanını oluşturduktan sonra ilana girmiş olduğunuz telefon numarasının ulaşılabilir olmasına özen gösterin.</Text>
+                                </View>
+                                
+                            </View>
                         </View>
+                        }
                         
                     </View>
                 </ScrollView>
+                { kanara &&
+                    <View style={styles.floatButton}>
+                        <TouchableOpacity
+                            onPress={()=> {
+                                navigation.navigate('HospitalsMapScreen')
+                            }}
+                        >
+                            <Icon
+                                name="place"
+                                type="material"
+                                size={30}
+                                style={{top:3}}
+                                color={colors.buttons}
+                            />
+                            <Text style={{color:colors.grey2}}>Harita</Text>
+                        </TouchableOpacity>
+                    </View>
+                }
 
             </View>
         </ImageBackground>
@@ -217,6 +260,18 @@ const styles = StyleSheet.create({
         width:120,
         margin:10,
         height:150,
+    },
+
+    floatButton:{
+        position:"absolute",
+        bottom:10,
+        right:15,
+        backgroundColor:"white",
+        elevation:10,
+        width:60,
+        height:60,
+        borderRadius:30,
+        alignItems:"center",
     }
 
 })

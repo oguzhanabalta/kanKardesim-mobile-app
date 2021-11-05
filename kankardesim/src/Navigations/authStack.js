@@ -4,6 +4,7 @@ import SignInScreen from '../Screens/authScreens/SignInScreen';
 import WelcomeScreen from '../Screens/authScreens/WelcomeScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import RootClientTabs from './ClientTabs';
+import HospitalsMapScreen from '../Screens/HospitalsMapScreen';
 
 
 const Auth = createStackNavigator();
@@ -36,6 +37,16 @@ export default function AuthStack () {
                     ...TransitionPresets.RevealFromBottomAndroid
                 }}
             />
+             <Auth.Screen
+                name="HospitalsMapScreen"
+                component= {HospitalsMapScreen}
+                options= {{
+                    
+                    headerShown:false,
+                    ...TransitionPresets.RevealFromBottomAndroid
+                }}
+            />
+            
 
         </Auth.Navigator>
     )

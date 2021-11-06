@@ -67,7 +67,7 @@ export default function SignInScreen ({navigation}) {
                 title="Giriş Yap"
                 buttonStyle={parameters.styledButton}
                 titleStyle={parameters.buttonTitle}
-                onPress={()=>{navigation.navigate('RootClientTabs')}}
+                onPress={()=>{navigation.navigate('DrawerNavigator')}}
               />
           </View>
           <View style={{alignItems:"center", marginTop:20}}>

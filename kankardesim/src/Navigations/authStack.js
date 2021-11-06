@@ -5,6 +5,7 @@ import WelcomeScreen from '../Screens/authScreens/WelcomeScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import RootClientTabs from './ClientTabs';
 import HospitalsMapScreen from '../Screens/HospitalsMapScreen';
+import DrawerNavigator from './DrawerNavigator';
 
 
 const Auth = createStackNavigator();
@@ -29,8 +30,8 @@ export default function AuthStack () {
                 }}
             />
              <Auth.Screen
-                name="RootClientTabs"
-                component= {RootClientTabs}
+                name="DrawerNavigator"
+                component= {DrawerNavigator}
                 options= {{
                     
                     headerShown:false,

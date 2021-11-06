@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { colors, parameters } from '../Global/styles';
 import { Icon, withBadge, Badge } from 'react-native-elements';
 
-export default function HomeHeader({title}){
+export default function HomeHeader({title, navigation}){
 const BadgeIcon=withBadge(1)(Icon)
     return(
         <View style = {styles.header}>
@@ -13,6 +13,9 @@ const BadgeIcon=withBadge(1)(Icon)
                     name="menu"
                     color={colors.headerText}
                     size={30}
+                    onPress={()=>{
+                        navigation.toggleDrawer()
+                    }}
                 />
             </View>
             <View style={{alignItems:"center",justifyContent:"center", marginLeft:10}}>

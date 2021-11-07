@@ -35,8 +35,35 @@ export default function DrawerContent(props) {
                         </View>
                     </View>
                 </View>
+                
                 <DrawerItemList {...props} />
+                <View style={{borderWidth:1,borderTopColor:colors.grey3,borderBottomColor:colors.grey3, borderRightColor:"white", borderLeftColor:"white"}}>
+                    <Text style={styles.secenekler}>Seçenekler</Text>
+                </View>
+                    <View style={styles.swtichText}>
+                        <Text style={styles.darkThemeText}>Dark Theme</Text>
+                        <View style={{paddingRight:10}}>
+                            <Switch 
+                                trackColor={{false:"#767572", true:"#dc2619"}}
+                                thumbColor="f4f3f4"
+                            />
+                        </View>
+                    </View>
+                   
+                
             </DrawerContentScrollView>
+            <DrawerItem
+                        label="Çıkış Yap"
+                        icon={({color,size})=>(
+                            <Icon
+                                type="material-community"
+                                name="logout"
+                                color={color}
+                                size={size}
+                            />
+                        )}
+                    
+                    />
         </View>
 
     )
@@ -51,5 +78,27 @@ const styles = StyleSheet.create({
         borderWidth: 4,
         borderColor: colors.grey5,
 
+    },
+    secenekler:{
+        fontSize:15,
+        color:colors.grey2,
+        paddingTop:10, 
+        paddingLeft:20,
+        paddingBottom:10
+    },
+    swtichText:{
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+        paddingLeft:20,
+        paddingVertical:5,
+        paddingRight:10,
+    },
+    darkThemeText:{
+        fontSize:16,
+        color:colors.grey2,
+        paddingTop:10,
+        paddingLeft:0,
+        fontWeight:"bold"
     }
 })

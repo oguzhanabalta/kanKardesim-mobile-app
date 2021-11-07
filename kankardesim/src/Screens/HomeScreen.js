@@ -39,7 +39,7 @@ export default function HomeScreen({navigation}) {
                                 }}
                             >
                                 <View style={{ ...styles.kanBulButton, backgroundColor: kanara ? "white" : "black" }}>
-                                    <Text style={styles.kanBulText}>Kan Ara</Text>
+                                    <Text style={styles.kanBulText}>Kan Bul</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>

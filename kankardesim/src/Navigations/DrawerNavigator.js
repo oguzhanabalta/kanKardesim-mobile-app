@@ -6,6 +6,8 @@ import { colors, parameters } from '../Global/styles';
 import BloodFind from '../Screens/BloodFindScreen';
 import DrawerContent from './DrawerContent';
 import WaitingBlood from '../Screens/WaitingBlood';
+import SettingsScreen from '../Screens/SettingsScreen';
+import HelpScreen from '../Screens/HelpScreen';
 
 const Drawer= createDrawerNavigator()
 
@@ -59,6 +61,40 @@ export default function DrawerNavigator(){
                         <Icon
                             type="material-community"
                             name="charity"
+                            color={focussed ? "#7cc" : colors.grey2 }
+                            size={size}
+                        />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="SettingsScreen"
+                component={SettingsScreen}
+                
+                options={{
+                    headerShown:false,
+                    title:'Ayarlar',
+                    drawerIcon: ({focussed,size})=>(
+                        <Icon
+                            type="material-community"
+                            name="account-cog"
+                            color={focussed ? "#7cc" : colors.grey2 }
+                            size={size}
+                        />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="HelpScreen"
+                component={HelpScreen}
+                
+                options={{
+                    headerShown:false,
+                    title:'Yardım',
+                    drawerIcon: ({focussed,size})=>(
+                        <Icon
+                            type="material-community"
+                            name="account-question"
                             color={focussed ? "#7cc" : colors.grey2 }
                             size={size}
                         />

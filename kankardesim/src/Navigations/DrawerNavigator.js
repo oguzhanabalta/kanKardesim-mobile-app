@@ -5,6 +5,7 @@ import { Icon } from 'react-native-elements';
 import { colors, parameters } from '../Global/styles';
 import BloodFind from '../Screens/BloodFindScreen';
 import DrawerContent from './DrawerContent';
+import WaitingBlood from '../Screens/WaitingBlood';
 
 const Drawer= createDrawerNavigator()
 
@@ -40,6 +41,23 @@ export default function DrawerNavigator(){
                     drawerIcon: ({focussed,size})=>(
                         <Icon
                             type="material-community"
+                            name="card-search"
+                            color={focussed ? "#7cc" : colors.grey2 }
+                            size={size}
+                        />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="WaitingBlood"
+                component={WaitingBlood}
+                
+                options={{
+                    headerShown:false,
+                    title:'Kan Ver',
+                    drawerIcon: ({focussed,size})=>(
+                        <Icon
+                            type="material-community"
                             name="charity"
                             color={focussed ? "#7cc" : colors.grey2 }
                             size={size}
@@ -47,6 +65,7 @@ export default function DrawerNavigator(){
                     )
                 }}
             />
+
         </Drawer.Navigator>
     )
 }

@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { colors, parameters } from '../Global/styles';
 import { Icon, withBadge, Badge } from 'react-native-elements';
+import MyAccountScreen from '../Screens/MyAccountScreen';
 
-export default function HomeHeader({title, navigation}){
+export default function HomeHeader({title, navigation,profileNavigation}){
 const BadgeIcon=withBadge(1)(Icon)
     return(
         <View style = {styles.header}>
@@ -34,6 +35,9 @@ const BadgeIcon=withBadge(1)(Icon)
                             name="person"
                             color={colors.headerText}
                             size={30}
+                            onPress={()=>{
+                                navigation.navigate('MyAccountScreen')
+                            }}
                     />
                     
                 </View>

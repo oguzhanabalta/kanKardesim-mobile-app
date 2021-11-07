@@ -17,7 +17,7 @@ export default function HomeScreen({navigation}) {
     return (
         <ImageBackground source={require('../Assets/image/back.png')} style={{ flex: 1 }} >
             <View style={styles.container}>
-                <HomeHeader title="Anasayfa" navigation={navigation} />
+                <HomeHeader title="Anasayfa" navigation={navigation}  />
                 <ScrollView
                     stickyHeaderIndices={[1]}
                     showsVerticalScrollIndicator={true}

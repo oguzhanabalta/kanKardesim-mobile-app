@@ -49,6 +49,15 @@ export default function DrawerContent(props) {
                             />
                         </View>
                     </View>
+                    <View style={styles.swtichText}>
+                        <Text style={styles.darkThemeText}>Bildirimler</Text>
+                        <View style={{paddingRight:10}}>
+                            <Switch 
+                                trackColor={{false:"#767572", true:"#dc2619"}}
+                                thumbColor="f4f3f4"
+                            />
+                        </View>
+                    </View>
                    
                 
             </DrawerContentScrollView>

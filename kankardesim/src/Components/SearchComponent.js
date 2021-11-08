@@ -9,6 +9,7 @@ export default function SearchComponent(){
     
     const[modalVisible, setModalVisible]=useState(false)
     const[textInputFossued, setTextInputFossued]=useState(true)
+    const textInput = useRef(0)
 
     return(
         <View style={{alignItems:"center"}}>
@@ -49,15 +50,30 @@ export default function SearchComponent(){
                                     style={styles.icon2}
                                     type="material"
                                     size={32}
-                                    iconStyle={{marginRight:5}}
+                                    iconStyle={{marginLeft:5}}
                                 
                                 />
                             </Animatable.View>
                             <TextInput
-                                style={{width:"90%"}}
+                                style={{width:"90%", paddingLeft:20}}
                                 placeholder=""
                                 autoFocus={false}
+                                ref={textInput}
+
                             />
+                            <Animatable.View>
+                                <Icon
+                                    name={textInputFossued ? "cancel" : "heart"}
+                                    onPress={()=>{
+                                        textInput.current.clear()
+                                       // handleSearch()
+                                    }}
+                                    style={styles.icon2}
+                                    type="material"
+                                    iconStyle={{color:colors.buttons, marginRight:10}}
+                                
+                                />
+                            </Animatable.View>
                         </View>
                     </View>
                 </View>

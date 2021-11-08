@@ -25,3 +25,14 @@ export const kanBekleyenData=[
         kanBekleyen:"Jhon S.", kanGrubu:"BRh(+)", telNo:"05423328567", aciklama:"Babam için acil trombosit kan ihtiyacımız var lütfen yardımcı olun.", durum:"0", tarih:"02.11.2021 14:50", baslik:"ACİL KAN LAZIM!",
     },
 ]
+
+export const kanGruplariData=[
+    {name:"0RH(+)", image:require("../Assets/icons/kanver.png"), id:"0"},
+    {name:"0RH(-)", image:require("../Assets/icons/arama.png"), id:"1"},
+    {name:"ARH(+)", image:require("../Assets/icons/bagis.png"), id:"2"},
+    {name:"ARH(-)", image:require("../Assets/icons/sonbagislar.png"), id:"3"},
+    {name:"BRH(+)", image:require("../Assets/icons/anket.png"), id:"4"},
+    {name:"BRH(-)", image:require("../Assets/icons/amacimiz.png"), id:"5"},
+    {name:"ABRH(-)", image:require("../Assets/icons/amacimiz.png"), id:"6"},
+    {name:"ABRH(+)", image:require("../Assets/icons/amacimiz.png"), id:"7"},
+]

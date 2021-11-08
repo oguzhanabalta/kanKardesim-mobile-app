@@ -1,15 +1,34 @@
 import React, {useState, useRef} from "react";
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, TextInput } from "react-native";
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, TextInput, FlatList, TouchableOpacity, Keyboard } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { Icon } from "react-native-elements";
 import { colors } from "../Global/styles";
 
+import {kanGruplariData} from "../Global/data";
+import { useNavigation } from "@react-navigation/native";
+import filter from "lodash/filter";
+
 
 export default function SearchComponent(){
-    
+
+
+    const navigation = useNavigation()
+    const [data, setData]=useState([...kanGruplariData])
     const[modalVisible, setModalVisible]=useState(false)
     const[textInputFossued, setTextInputFossued]=useState(true)
     const textInput = useRef(0)
+    const contains= ({name}, query) => {
+        if(name.includes(query)){
+            return true
+        } return false
+    }
+    const handleSearch = text =>{
+        const dataS = filter(kanGruplariData, userSearch =>{
+            return contains(userSearch, text)
+        }) 
+
+        setData([...dataS])
+    }
 
     return(
         <View style={{alignItems:"center"}}>
@@ -39,7 +58,10 @@ export default function SearchComponent(){
                 <View style={styles.modal}>
                     <View style={styles.view1}>
                         <View style={styles.TextInput}> 
-                            <Animatable.View>
+                            <Animatable.View
+                                animation={textInputFossued ? "fadeInRight" : "fadeInLeft"}
+                                duration={800}
+                            >
                                 <Icon
                                     name={textInputFossued ? "arrow-back" : "search"}
                                     onPress={()=>{
@@ -59,9 +81,19 @@ export default function SearchComponent(){
                                 placeholder=""
                                 autoFocus={false}
                                 ref={textInput}
+                                onFocus={()=>{
+                                    setTextInputFossued(true)
+                                }}
+                                onBlur={()=>{
+                                    setTextInputFossued(false)
+                                }}
+                                onChangeText={handleSearch}
 
                             />
-                            <Animatable.View>
+                            <Animatable.View
+                                animation={textInputFossued ? "fadeInLeft" : "fadeInRight"}
+                                duration={800}
+                            >
                                 <Icon
                                     name={textInputFossued ? "cancel" : "heart"}
                                     onPress={()=>{
@@ -76,6 +108,25 @@ export default function SearchComponent(){
                             </Animatable.View>
                         </View>
                     </View>
+                    <FlatList
+                        data={data}
+                        renderItem={({item}) => (
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    Keyboard.dismiss
+                                    navigation.navigate("WaitingBlood",{item:item.name})
+                                    setModalVisible(false)
+                                    setTextInputFossued(true)
+                                }}
+                            >
+                                <View style={styles.view2}>
+                                    <Text style={{color:colors.grey2, fontSize:15}}>{item.name}</Text>
+                                </View>
+
+                            </TouchableOpacity>
+                        )}
+                         keyExtractor={item=>item.id}       
+                    />
                 </View>
             </Modal>
         </View>

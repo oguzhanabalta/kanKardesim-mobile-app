@@ -1,10 +1,12 @@
 import React from "react";
-import { View,Text, ImageBackground, TouchableNativeFeedback, Image,StyleSheet, Dimensions } from "react-native";
+import { View,Text, ImageBackground, TouchableNativeFeedback, Image,StyleSheet, Dimensions, ScrollView } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import HomeHeader from "../Components/HomeHeader";
 import SearchComponent from "../Components/SearchComponent";
-import { kanGruplariData } from "../Global/data";
+import { kanBekleyenData, kanGruplariData } from "../Global/data";
 import { colors } from "../Global/styles";
+import WaitingBloodCard from "../Components/WaitingBloodCard";
+import { isTemplateElement } from "@babel/types";
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -14,32 +16,33 @@ export default function WaitingBlood(){
             <ImageBackground source={require('../Assets/image/back.png')} style={{ flex: 1 }}>
                 <View style={{}}>
                     <SearchComponent/>
-                    <View>
+                    
+                        <View style={{padding:10}}>
                         <FlatList
-                            style={{marginBottom:1}}
-                            data={kanGruplariData}
-                            keyExtractor={item=>item.id}
+                            style={{marginTop:10, marginBottom:10}}
+                            horizontal={true}
+                            data={kanBekleyenData}
+                            keyExtractor={(item, index)=>index.toString()}
                             renderItem={({item})=>(
-                                <TouchableNativeFeedback>
-                                    <View>
-                                        <ImageBackground 
-                                            style={styles.image}
-                                            source = {{uri:item.name}}
-                                        >
-                                            
-                                            <View>
-                                                <Text style={{color:colors.buttons}}>{item.name}</Text>
-                                            </View>
-                                        </ImageBackground>
-                                    </View>
-                                </TouchableNativeFeedback>
+                                <View>
+                                    <WaitingBloodCard
+                                        screenWidth = {SCREEN_WIDTH*0.8}
+                                        hospitalImages= {item.hospitalImages}
+                                        hospitalName={item.hospitalName}
+                                        address={item.address}
+                                        distance={item.distance}
+                                        baslik={item.baslik}
+                                        kanGrubu={item.kanGrubu}
+                                        tarih={item.tarih}
+                                    />
+                                </View>
                             )}
-                                horizontal={false}
-                                showsVerticalScrollIndicator={false}
-                                numColumns={2}
+
                         />
-                    </View>
                 </View>
+               
+                </View>
+                
             </ImageBackground>
             
         
@@ -56,14 +59,22 @@ const styles = StyleSheet.create({
         marginLeft:SCREEN_WIDTH*0.035,
         marginBottom:SCREEN_WIDTH*0.035
     },
-    image:{
-        height:SCREEN_WIDTH*0.4475,
-        width:SCREEN_WIDTH*0.4475,
-        borderRadius:10
+    card:{
+        height:SCREEN_WIDTH*0.4545,
+        width:SCREEN_WIDTH*0.9455,
+        marginLeft:SCREEN_WIDTH*0.035,
+        marginBottom:SCREEN_WIDTH*0.035,
+        borderRadius:10,
+        backgroundColor:colors.grey4,
+        marginLeft:12,
+        marginTop:10,
+        justifyContent:"center",
+        alignItems:"center"
     },
     listHeader:{
         fontSize:16,
-        color:colors.grey2,
+        color:"white",
+        paddingTop:10,
         paddingBottom:10,
         marginLeft:12,
     },

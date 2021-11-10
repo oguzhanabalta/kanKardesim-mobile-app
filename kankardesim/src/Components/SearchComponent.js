@@ -7,16 +7,19 @@ import { colors } from "../Global/styles";
 import {kanGruplariData} from "../Global/data";
 import { useNavigation } from "@react-navigation/native";
 import filter from "lodash/filter";
+import SearchResultScreen from "../Screens/SearchResultScreen";
 
 
 export default function SearchComponent(){
 
 
-    const navigation = useNavigation()
+    const navigation = useNavigation();
+
     const [data, setData]=useState([...kanGruplariData])
     const[modalVisible, setModalVisible]=useState(false)
     const[textInputFossued, setTextInputFossued]=useState(true)
     const textInput = useRef(0)
+
     const contains= ({name}, query) => {
         if(name.includes(query)){
             return true
@@ -114,7 +117,7 @@ export default function SearchComponent(){
                             <TouchableOpacity
                                 onPress={()=>{
                                     Keyboard.dismiss
-                                    navigation.navigate("WaitingBlood",{item:item.name})
+                                    navigation.navigate("SearchResultScreen",{item:item.name})
                                     setModalVisible(false)
                                     setTextInputFossued(true)
                                 }}

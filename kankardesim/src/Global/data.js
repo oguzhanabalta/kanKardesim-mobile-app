@@ -27,12 +27,12 @@ export const kanBekleyenData=[
 ]
 
 export const kanGruplariData=[
-    {name:"0RH(+)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"0"},
-    {name:"0RH(-)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"1"},
-    {name:"ARH(+)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"2"},
-    {name:"ARH(-)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"3"},
-    {name:"BRH(+)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"4"},
-    {name:"BRH(-)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"5"},
-    {name:"ABRH(-)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"6"},
-    {name:"ABRH(+)", image:"https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/05/GettyImages-1129729012_header-1024x575.jpg?w=1155&h=1528", id:"7"},
+    {name:"0RH(+)", id:"0"},
+    {name:"0RH(-)", id:"1"},
+    {name:"ARH(+)", id:"2"},
+    {name:"ARH(-)", id:"3"},
+    {name:"BRH(+)", id:"4"},
+    {name:"BRH(-)", id:"5"},
+    {name:"ABRH(-)", id:"6"},
+    {name:"ABRH(+)", id:"7"},
 ]

@@ -8,6 +8,7 @@ import DrawerContent from './DrawerContent';
 import WaitingBlood from '../Screens/WaitingBlood';
 import SettingsScreen from '../Screens/SettingsScreen';
 import HelpScreen from '../Screens/HelpScreen';
+import MyDonationScreen from '../Screens/MyDonationScreen';
 
 const Drawer= createDrawerNavigator()
 
@@ -61,6 +62,23 @@ export default function DrawerNavigator(){
                         <Icon
                             type="material-community"
                             name="charity"
+                            color={focussed ? "#7cc" : colors.grey2 }
+                            size={size}
+                        />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="MyDonationScreen"
+                component={MyDonationScreen}
+                
+                options={{
+                    headerShown:false,
+                    title:'Bağışlarım ve İlanlarım',
+                    drawerIcon: ({focussed,size})=>(
+                        <Icon
+                            type="material-community"
+                            name="format-list-bulleted-square"
                             color={focussed ? "#7cc" : colors.grey2 }
                             size={size}
                         />

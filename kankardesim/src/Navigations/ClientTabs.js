@@ -6,6 +6,9 @@ import HomeScreen from "../Screens/HomeScreen";
 import MyAccountScreen from "../Screens/MyAccountScreen";
 import MyDonationScreen from "../Screens/MyDonationScreen";
 import BloodFindScreen from "../Screens/BloodFindScreen";
+import SearchResultScreen from "../Screens/SearchResultScreen";
+import WaitingBlood from "../Screens/WaitingBlood";
+import ClientStack from "./ClientStack";
 
 const ClientTabs = createBottomTabNavigator();
 
@@ -38,16 +41,16 @@ export default function RootClientTabs(){
                 }
             />
             <ClientTabs.Screen
-                name="BloodFindScreen"
-                component= {BloodFindScreen}
+                name="WaitingBlood"
+                component= {ClientStack}
                 options={
                     {
                         headerShown:false,
-                        tabBarLabel : "Kan Bul",
+                        tabBarLabel : "Kan Ver",
                         tabBarIcon : ({color,size}) => (
                             <Icon
-                                name='search'
-                                type='material'
+                                name='charity'
+                                type='material-community'
                                 color={color}
                                 size={size} 
                             
@@ -57,16 +60,16 @@ export default function RootClientTabs(){
                 }
             />
             <ClientTabs.Screen
-                name="MyDonationScreen"
-                component= {MyDonationScreen}
+                name="BloodFindScreen"
+                component= {BloodFindScreen}
                 options={
                     {
                         headerShown:false,
-                        tabBarLabel : "Bağışlarım",
+                        tabBarLabel : "Kan Bul",
                         tabBarIcon : ({color,size}) => (
                             <Icon
-                                name='view-list'
-                                type='material'
+                                type="material-community"
+                                name="card-search"
                                 color={color}
                                 size={size} 
                             
@@ -94,6 +97,7 @@ export default function RootClientTabs(){
                     }
                 }
             />
+
            
         </ClientTabs.Navigator>
     )

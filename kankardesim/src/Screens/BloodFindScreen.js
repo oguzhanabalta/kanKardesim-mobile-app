@@ -9,7 +9,7 @@ export default function BloodFind({ navigation }) {
                 <HomeHeader title="Kan Bul" navigation={navigation} />
                 <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
 
-                    <Text>Kan bul</Text>
+                    <Text>Kan bsul</Text>
                 </View>
             </View>
         </ImageBackground>

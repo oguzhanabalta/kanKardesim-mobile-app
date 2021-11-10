@@ -35,4 +35,14 @@ export const kanGruplariData=[
     {name:"BRH(-)", id:"5"},
     {name:"ABRH(-)", id:"6"},
     {name:"ABRH(+)", id:"7"},
-]
+];
+export const ilcelerData=[
+    {name:"Menteşe", id:"0"},
+    {name:"Yatağan", id:"1"},
+    {name:"Marmaris", id:"2"},
+    {name:"Gökova", id:"3"},
+    {name:"Bodrum", id:"4"},
+    {name:"Fethiye", id:"5"},
+    {name:"Köyceğiz", id:"6"},
+    {name:"Kavaklıdere", id:"7"},
+];

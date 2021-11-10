@@ -4,9 +4,7 @@ import { Icon } from "react-native-elements";
 import { colors,parameters } from "../Global/styles";
 import HomeScreen from "../Screens/HomeScreen";
 import MyAccountScreen from "../Screens/MyAccountScreen";
-import MyDonationScreen from "../Screens/MyDonationScreen";
 import BloodFindScreen from "../Screens/BloodFindScreen";
-import SearchResultScreen from "../Screens/SearchResultScreen";
 import WaitingBlood from "../Screens/WaitingBlood";
 import ClientStack from "./ClientStack";
 

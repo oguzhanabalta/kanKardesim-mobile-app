@@ -6,7 +6,7 @@ import { Icon } from 'react-native-elements/dist/icons/Icon';
 export default function Header({title,type, navigation}){
     return(
         <View style = {styles.header}>
-            <View>
+            <View style={{marginLeft:10}}>
                 <Icon
                     type="material-community"
                     name={type}
@@ -15,7 +15,7 @@ export default function Header({title,type, navigation}){
                     onPress={()=>{navigation.goBack()}}
                 />
             </View>
-            <View>
+            <View style={{marginRight:10}}>
                 <Text style={styles.headerText}>{title}</Text>
             </View>
             <View>
@@ -34,9 +34,6 @@ const styles = StyleSheet.create({
         width:parameters.headerWidth,
         justifyContent:"space-between",
         alignItems:"center"
-    },
-    backButton:{
-        marginLeft:5,
     },
     headerText: {
         color:colors.headerText,

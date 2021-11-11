@@ -1,6 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import Header from '../Components/Header'
+import SearchResultCard from '../Components/SearchResultCard'
+import { kanBekleyenData } from '../Global/data';
+
+
+const SCREEN_WIDTH =Dimensions.get('window').width;
 
 const SearchResultScreen = ({navigation, route}) => {
     return (
@@ -9,6 +14,12 @@ const SearchResultScreen = ({navigation, route}) => {
           <View style={styles.container}>
             
             <Text>SearchResultScreen {route.params.item}</Text>
+            <SearchResultCard
+                screenWidth = {SCREEN_WIDTH}
+                hospitalImages= {kanBekleyenData[0].hospitalImages}
+                kanGrubu={kanBekleyenData[0].kanGrubu}
+                tarih={kanBekleyenData[0].tarih}
+            />
         </View>  
         </View>
         

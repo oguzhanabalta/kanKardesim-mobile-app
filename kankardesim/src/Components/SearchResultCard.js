@@ -22,7 +22,7 @@ export default function SearchResultCard({
     return (
         <View>
             <View style={styles.view1}>
-                <View style={{height:150}}>
+                <View style={{height:150, width:300}}>
                     <ImageBackground
                         style={{height:160}}
                         source={{uri:hospitalImages}}
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     view1:{
         position:"absolute",
         top:0,
+        left:20,
         right:0,
         backgroundColor:'rgba(52,52,52,0.3)',
         padding:2,

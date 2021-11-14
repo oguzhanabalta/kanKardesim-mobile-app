@@ -39,7 +39,7 @@ export default function RootClientTabs(){
                 }
             />
             <ClientTabs.Screen
-                name="WaitingBlood"
+                name="ClientStack"
                 component= {ClientStack}
                 options={
                     {

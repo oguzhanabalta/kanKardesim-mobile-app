@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "794417639587",
+    "project_id": "kankardesim-d1a0f",
+    "storage_bucket": "kankardesim-d1a0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794417639587:android:34b9f20ef81730e5efcf16",
+        "android_client_info": {
+          "package_name": "com.kankardesim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794417639587-5abnd39qd9cpelhi4pnmb8r3egv4e9ih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNsF8SYhS90svUoNGpAqXXJBvvbKRzh8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794417639587-5abnd39qd9cpelhi4pnmb8r3egv4e9ih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -62,6 +62,7 @@ export default function WelcomeScreen({navigation}) {
                         title="Yeni bir hesap oluştur"
                         buttonStyle={parameters.createButton}
                         titleStyle={parameters.createButtonTitle}
+                        onPress={()=>{navigation.navigate('SignUpScreen')}}
                     />                
                 </View>
 

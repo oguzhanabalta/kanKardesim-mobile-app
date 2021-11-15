@@ -140,6 +140,7 @@ export default function SignInScreen({ navigation }) {
                 <Button
                     title="Kayıt Ol"
                     buttonStyle={parameters.styledButton}
+                    onPress={()=>{navigation.navigate('SignUpScreen')}}
                 //titleStyle={parameters.buttonTitle}
                 />
             </View>

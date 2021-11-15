@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, ScrollView, TextInput, ImageBackground } from 'react-native'
-import { colors } from '../../Global/styles'
+import { colors, parameters } from '../../Global/styles'
 import Header from '../../Components/Header'
 import { Formik } from 'formik'
 import SignInScreen from './SignInScreen'
-import { Icon } from 'react-native-elements'
+import { Icon, Button } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
 
 const initialValues = { tel_no: '', ad: '', soyad: '', kanGrubu: '', password: '', email: '', username: '' }
@@ -80,7 +80,7 @@ export default function SignUpScreen({ navigation }) {
                                 </View>
                             </View>
                             <View style={styles.view14}>
-                                <Animatable.View>
+                                <Animatable.View animation={passwordFocussed?"fadeInRight":"fadeInLeft" } duration={400}>
                                     <Icon
                                         name="lock"
                                         color={colors.grey3}
@@ -96,7 +96,7 @@ export default function SignUpScreen({ navigation }) {
                                     onFocus={()=>{setPasswordFocussed(true)}}
                                     onBlur={()=>{setPasswordBlured(true)}}
                                 />
-                                <Animatable.View>
+                                <Animatable.View animation={passwordBlured?"fadeInLeft":"fadeInRight" } duration={400}>
                                     <Icon
                                         name="visibility-off"
                                         color={colors.grey3}
@@ -104,7 +104,24 @@ export default function SignUpScreen({ navigation }) {
                                         style={{marginRight:10}}
                                     />
                                 </Animatable.View>
-
+                            </View>
+                            <View style={styles.view15}>
+                                <Text style={styles.text3}>Bir hesap oluştur.</Text>
+                                <View style={styles.view16}>
+                                    <Text style={styles.text3}></Text>
+                                    <Text style={styles.text4}>Şartlar & Koşullar</Text>
+                                    
+                                </View>
+                                <Text style={styles.text3}> ve </Text>
+                                <Text style={styles.text4}>Gizlilik Sözleşmesi</Text>
+                            </View>
+                            <View style={styles.view17}>
+                                <Button 
+                                    title="Hesabımı oluştur"
+                                    buttonStyle={styles.button1}
+                                    titleStyle={styles.title1}
+                                    onPress={props.handleSubmit}
+                                />
                             </View>
                         </View>
                     )}
@@ -254,7 +271,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.buttons,
         alignContent: "center",
         justifyContent: "center",
-        borderRadius: 12,
+        borderRadius: 30,
         borderWidth: 1,
         borderColor: colors.buttons,
         height: 50,

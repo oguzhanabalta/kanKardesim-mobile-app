@@ -89,7 +89,7 @@ export default function SignUpScreen({ navigation }) {
                                 </Animatable.View>
                                 <TextInput
                                     style={styles.input4}
-                                    placeholder="Password"
+                                    placeholder="Şifre"
                                     autoFocus={false}
                                     onChangeText={props.handleChange('password')}
                                     value={props.values.password}
@@ -106,14 +106,13 @@ export default function SignUpScreen({ navigation }) {
                                 </Animatable.View>
                             </View>
                             <View style={styles.view15}>
-                                <Text style={styles.text3}>Bir hesap oluştur.</Text>
                                 <View style={styles.view16}>
                                     <Text style={styles.text3}></Text>
                                     <Text style={styles.text4}>Şartlar & Koşullar</Text>
-                                    
-                                </View>
-                                <Text style={styles.text3}> ve </Text>
+                                    <Text style={styles.text3}> ve </Text>
                                 <Text style={styles.text4}>Gizlilik Sözleşmesi</Text>
+                                </View>
+                                
                             </View>
                             <View style={styles.view17}>
                                 <Button 
@@ -126,6 +125,22 @@ export default function SignUpScreen({ navigation }) {
                         </View>
                     )}
                 </Formik>
+                <View style={styles.view18}>
+                    <Text style={styles.text5}>VEYA</Text>
+                </View>
+                <View style={styles.view19}>
+                    <View style={styles.view20}>
+                        <Text style={styles.text6}>Eğer KanKardeşim'de bir hesabınız varsa..</Text>
+                    </View>
+                    <View style={styles.view21}>
+                        <Button
+                            title="Giriş Yap"
+                            buttonStyle={styles.button2}
+                            titleStyle={styles.title2}
+                            onPress={()=>{navigation.navigate('SignInScreen')}}
+                        />
+                    </View>
+                </View>
             </ScrollView>
         </View>
     )
@@ -254,7 +269,7 @@ const styles = StyleSheet.create({
     view15: {
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 10,
+        marginTop: 5,
     },
     text3: {
         fontSize: 13,
@@ -315,7 +330,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.buttons,
         alignContent: "center",
         justifyContent: "center",
-        borderRadius: 12,
+        borderRadius: 30,
         borderWidth: 1,
         borderColor: colors.buttons,
         height: 40,
@@ -323,7 +338,7 @@ const styles = StyleSheet.create({
 
     },
     title2: {
-        color: colors.buttons,
+        color: "white",
         fontSize: 16,
         fontWeight: "bold",
         alignItems: "center",

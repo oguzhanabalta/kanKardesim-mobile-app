@@ -73,7 +73,7 @@ export default function SignInScreen({ navigation }) {
                                 </Animatable.View>
                                 <TextInput
                                     style={{ width: "80%" }}
-                                    placeholder="Password"
+                                    placeholder="Şifre"
                                     ref={textInput2}
                                     onFocus={() => {
                                         setTextInput2Fossued(false)

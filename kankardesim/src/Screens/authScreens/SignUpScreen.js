@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, ScrollView, TextInput, ImageBackground } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TextInput, ImageBackground,Alert } from 'react-native'
 import { colors, parameters } from '../../Global/styles'
 import Header from '../../Components/Header'
 import { Formik } from 'formik'
 import SignInScreen from './SignInScreen'
 import { Icon, Button } from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
+import auth from '@react-native-firebase/auth'
 
 const initialValues = { tel_no: '', ad: '', soyad: '', kanGrubu: '', password: '', email: '', username: '' }
 
@@ -13,6 +14,28 @@ export default function SignUpScreen({ navigation }) {
 
     const [passwordFocussed, setPasswordFocussed]=useState(false)
     const [passwordBlured,setPasswordBlured] = useState(false)
+
+    async function signUp(values){
+        const {email, password} = values
+        try{
+            await auth().createUserWithEmailAndPassword(email,password)
+            console.log("KULLANICI OLUŞTURULDU")
+        }catch(error){
+            if(error.code === 'auth/email-already-in-use'){
+                Alert.alert('Bu email adresi zaten kullanılıyor.')
+            }
+            if(error.code === 'auth/invalid-email'){
+                Alert.alert('Geçersiz bir mail adresi girdiniz.')
+            }
+            else{
+                Alert.alert(error.code)
+            }
+
+        }
+
+
+    }
+
     return (
 
         <View style={styles.container}>
@@ -25,7 +48,7 @@ export default function SignUpScreen({ navigation }) {
                 </View>
                 <Formik
                     initialValues={initialValues}
-                    onSubmit={() => { SignInScreen(values) }}
+                    onSubmit={(values) => {signUp(values)}}
                 >
                     {(props) => (
                         <View style={styles.view2}>

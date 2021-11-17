@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { View, Text, StyleSheet, Dimensions, TextInput, ImageBackground, Alert } from 'react-native';
 import { colors, parameters, title } from '../../Global/styles';
 import Header from '../../Components/Header';
@@ -6,10 +6,13 @@ import * as Animatable from 'react-native-animatable';
 import { Icon, Button, SocialIcon } from 'react-native-elements';
 import { Formik } from "formik";
 import auth from "@react-native-firebase/auth";
+import { SignInContext } from '../../Contexts/authContext';
 
 
 
 export default function SignInScreen({ navigation }) {
+
+    const {dispatchSignedIn} = useContext(SignInContext)
 
     const [textInput2Fossued, setTextInput2Fossued] = useState(false)
 
@@ -21,7 +24,9 @@ export default function SignInScreen({ navigation }) {
             const { password, email } = data
             const user = await auth().signInWithEmailAndPassword(email, password)
             if (user) {
-                console.log("Kullanıcı Oturum Açtı")
+                console.log(user)
+                console.log("kullanıcı başarıyla giriş yaptı")
+                dispatchSignedIn({type:"UPDATE_SIGN_IN", payload:{userToken:"signed-in"}})
             }
         }
         catch(error){

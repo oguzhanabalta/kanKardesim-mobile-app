@@ -79,6 +79,7 @@ export default function SignInScreen({ navigation }) {
                                 <TextInput
                                     style={{ width: "80%" }}
                                     placeholder="Şifre"
+                                    secureTextEntry={true}
                                     ref={textInput2}
                                     onFocus={() => {
                                         setTextInput2Fossued(false)

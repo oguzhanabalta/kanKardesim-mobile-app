@@ -35,7 +35,12 @@ export default function MyAccountScreen({ navigation }) {
                     </View>
                     <View style={{ marginTop: 20 }}>
                         <View style={styles.row}>
-                            <Icon name="map-marker-radius" color="black" size={20} />
+                            <Icon
+                                name="place"
+                                type="material"
+                                color="black"
+                                size={20}
+                            />
                             <Text style={{ color: "black", marginLeft: 20, fontWeight: "bold" }}>Keçiören, Ankara</Text>
                         </View>
                         <View style={styles.row}>
@@ -53,18 +58,18 @@ export default function MyAccountScreen({ navigation }) {
                 <View style={{ flexDirection: "row", justifyContent: "center" }}>
                     <View style={styles.userInfoSection}>
                         <View style={styles.userDonation}>
-                            <Text style={{ fontSize: 15, fontWeight: "bold",color:"white"}}>1</Text>
+                            <Text style={{ fontSize: 15, fontWeight: "bold", color: "white" }}>1</Text>
                         </View>
                         <View style={{ justifyContent: "center", alignItems: "center", marginTop: 10 }}>
-                            <Text style={{fontSize:15, fontWeight:"bold"}}>YAPILAN BAĞIŞ</Text>
+                            <Text style={{ fontSize: 15, fontWeight: "bold" }}>YAPILAN BAĞIŞ</Text>
                         </View>
                     </View>
                     <View style={styles.userInfoSection}>
                         <View style={styles.userDonation}>
-                            <Text style={{ fontSize: 15, fontWeight: "bold", color:"white" }}>1</Text>
+                            <Text style={{ fontSize: 15, fontWeight: "bold", color: "white" }}>1</Text>
                         </View>
                         <View style={{ justifyContent: "center", alignItems: "center", marginTop: 10 }}>
-                            <Text style={{fontSize:15, fontWeight:"bold"}}>ALINAN BAĞIŞ</Text>
+                            <Text style={{ fontSize: 15, fontWeight: "bold" }}>ALINAN BAĞIŞ</Text>
                         </View>
                     </View>
                 </View>
@@ -72,31 +77,31 @@ export default function MyAccountScreen({ navigation }) {
                 <View style={styles.menuWrapper}>
                     <TouchableRipple onPress={() => { }}>
                         <View style={styles.menuItem}>
-                        <Icon
-                            type="material-community"
-                            name="format-list-bulleted-square"
-                            size={25}
-                        />
+                            <Icon
+                                type="material-community"
+                                name="format-list-bulleted-square"
+                                size={25}
+                            />
                             <Text style={styles.menuItemText}>İlanlarım</Text>
                         </View>
                     </TouchableRipple>
                     <TouchableRipple onPress={() => { }}>
                         <View style={styles.menuItem}>
-                        <Icon
-                            type="material-community"
-                            name="account-question"
-                            size={25}
-                        />
+                            <Icon
+                                type="material-community"
+                                name="account-question"
+                                size={25}
+                            />
                             <Text style={styles.menuItemText}>Destek</Text>
                         </View>
                     </TouchableRipple>
                     <TouchableRipple onPress={() => { }}>
                         <View style={styles.menuItem}>
-                        <Icon
-                            type="material-community"
-                            name="account-cog"
-                            size={25}
-                        />
+                            <Icon
+                                type="material-community"
+                                name="account-cog"
+                                size={25}
+                            />
                             <Text style={styles.menuItemText}>Ayarlar</Text>
                         </View>
                     </TouchableRipple>
@@ -120,8 +125,8 @@ const styles = StyleSheet.create({
     },
     userInfoSection: {
         borderRadius: 30,
-        borderColor:"black",
-        borderWidth:3,
+        borderColor: "black",
+        borderWidth: 3,
         paddingVertical: 15,
         backgroundColor: "white",
         paddingHorizontal: 30,
@@ -130,14 +135,14 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginBottom: 25,
     },
-    userDonation:{
-        justifyContent:"center",
-        alignItems:"center",
+    userDonation: {
+        justifyContent: "center",
+        alignItems: "center",
         fontWeight: "bold",
-        paddingVertical:3,
-        paddingHorizontal:10, 
-        backgroundColor:colors.buttons, 
-        borderRadius:5
+        paddingVertical: 3,
+        paddingHorizontal: 10,
+        backgroundColor: colors.buttons,
+        borderRadius: 5
     },
     title: {
         fontSize: 24,
@@ -173,11 +178,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingVertical: 15,
         paddingHorizontal: 30,
-        backgroundColor:colors.buttons,
-        borderRadius:15,
-        marginTop:10,
-        marginLeft:10,
-        marginRight:10
+        backgroundColor: colors.buttons,
+        borderRadius: 15,
+        marginTop: 10,
+        marginLeft: 10,
+        marginRight: 10
     },
     menuItemText: {
         color: 'white',

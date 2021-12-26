@@ -19,7 +19,7 @@ export default function BloodFind({ navigation }) {
     const ilanOlustur = async (ilan) => {
         try{
             await firestore().collection('ilanlar').add(ilan)
-            
+            navigation.navigate('HomeScreen')
         } catch (error) {
             console.log(error)
         }

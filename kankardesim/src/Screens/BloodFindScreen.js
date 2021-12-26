@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ImageBackground, TextInput } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, TextInput, ScrollView } from "react-native";
 import { Button } from "react-native-elements/dist/buttons/Button";
 import HomeHeader from "../Components/HomeHeader";
 import { colors, parameters } from "../Global/styles";
+import firestore from "@react-native-firebase/firestore";
 
 export default function BloodFind({ navigation }) {
     const [ilan, setIlan] = useState({
@@ -11,9 +12,18 @@ export default function BloodFind({ navigation }) {
         sehir: '',
         ilce: '',
         hastane: '',
-        adres: '',
         tel_no: '',
+        aciklama:'',
     })
+
+    const ilanOlustur = async (ilan) => {
+        try{
+            await firestore().collection('ilanlar').add(ilan)
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
 
         <View style={{ flex: 1 }}>
@@ -26,65 +36,85 @@ export default function BloodFind({ navigation }) {
                 </View>
 
             </View>
-            <View style={{ marginTop: 10 }} >
-                <View style={styles.textInput}>
-                    <View>
-                        <TextInput
-                            value={ilan.isim}
-                            onChangeText={(isim) => { setIlan({ ...ilan, isim: isim }) }}
-                            placeholder="İsim"
-                            LeftIcon={{ type: 'font-awesome', name: 'header' }}
-                        />
+            <ScrollView>
+                <View style={{ marginTop: 10 }} >
+                    <View style={styles.textInput}>
+                        <View>
+                            <TextInput
+                                value={ilan.isim}
+                                onChangeText={(isim) => { setIlan({ ...ilan, isim: isim }) }}
+                                placeholder="İsim"
+                                LeftIcon={{ type: 'font-awesome', name: 'header' }}
+                            />
+                        </View>
                     </View>
-                </View>
-                <View style={styles.textInput}>
-                    <View>
-                        <TextInput
-                            placeholder="Kan Grubu"
-                        />
+                    <View style={styles.textInput}>
+                        <View>
+                            <TextInput
+                                value={ilan.kan_grubu}
+                                onChangeText={(kan_grubu) => { setIlan({ ...ilan, kan_grubu: kan_grubu }) }}
+                                placeholder="Kan Grubu"
+                            />
+                        </View>
                     </View>
-                </View>
-                <View style={styles.textInput}>
-                    <View>
-                        <TextInput
-                            placeholder="Şehir"
-                        />
+                    <View style={styles.textInput}>
+                        <View>
+                            <TextInput
+                                value={ilan.sehir}
+                                onChangeText={(sehir) => { setIlan({ ...ilan, sehir: sehir }) }}
+                                placeholder="Şehir"
+                            />
+                        </View>
                     </View>
-                </View>
-                <View style={styles.textInput}>
-                    <View>
-                        <TextInput
-                            placeholder="İlçe"
-                        />
+                    <View style={styles.textInput}>
+                        <View>
+                            <TextInput
+                                value={ilan.ilce}
+                                onChangeText={(ilce) => { setIlan({ ...ilan, ilce: ilce }) }}
+                                placeholder="İlçe"
+                            />
+                        </View>
                     </View>
-                </View>
-                <View style={styles.textInput}>
-                    <View>
-                        <TextInput
-                            placeholder="Hastane"
-                        />
+                    <View style={styles.textInput}>
+                        <View>
+                            <TextInput
+                                value={ilan.hastane}
+                                onChangeText={(hastane) => { setIlan({ ...ilan, hastane: hastane }) }}
+                                placeholder="Hastane"
+                            />
+                        </View>
                     </View>
-                </View>
-                <View style={styles.textInput}>
-                    <View>
-                        <TextInput
-                            placeholder="Telefon Numarası"
-                            keyboardType="numeric"
-                        />
+                    <View style={styles.textInput}>
+                        <View>
+                            <TextInput
+                                value={ilan.tel_no}
+                                onChangeText={(tel_no) => { setIlan({ ...ilan, tel_no: tel_no }) }}
+                                placeholder="Telefon Numarası"
+                                keyboardType="numeric"
+                            />
+                        </View>
                     </View>
-                </View>
-                <View style={{marginBottom:10}}>
+                    <View style={styles.textInput}>
+                        <View>
+                            <TextInput
+                                value={ilan.aciklama}
+                                onChangeText={(aciklama) => { setIlan({ ...ilan, aciklama: aciklama  }) }}
+                                multiline
+                                numberOfLines={4}
+                                placeholder="Açıklama"
+                            />
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}>
                         <Button
+                            onPress={()=>{ilanOlustur(ilan)}}
                             title="OLUŞTUR"
                             buttonStyle={parameters.styledButton}
                             titleStyle={parameters.buttonTitle}
-                            />
+                        />
                     </View>
-
-
-
-            </View>
-
+                </View>
+            </ScrollView>
         </View>
 
 
@@ -96,9 +126,9 @@ const styles = StyleSheet.create({
     textInput: {
         borderWidth: 2,
         borderColor: colors.buttons,
-        marginHorizontal: 20,
+        marginHorizontal: 10,
         borderRadius: 12,
-        marginBottom: 20,
+        marginBottom: 10,
         flexDirection: "row",
         justifyContent: "space-between",
         alignContent: "center",

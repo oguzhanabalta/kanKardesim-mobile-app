@@ -114,6 +114,7 @@ export default function SignUpScreen({ navigation }) {
                                     style={styles.input4}
                                     placeholder="Şifre"
                                     autoFocus={false}
+                                    secureTextEntry={true}
                                     onChangeText={props.handleChange('password')}
                                     value={props.values.password}
                                     onFocus={()=>{setPasswordFocussed(true)}}
@@ -142,7 +143,9 @@ export default function SignUpScreen({ navigation }) {
                                     title="Hesabımı oluştur"
                                     buttonStyle={styles.button1}
                                     titleStyle={styles.title1}
-                                    onPress={props.handleSubmit}
+                                    onPress={
+                                        props.handleSubmit
+                                    }
                                 />
                             </View>
                         </View>

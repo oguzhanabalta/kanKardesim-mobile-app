@@ -31,7 +31,7 @@ export default function WaitingBlood({ navigation }) {
 
     useEffect(() => {
         fetchIlanlar()
-        firestore().collection('students').where("type", "==", "ilan").onSnapshot(querySnapshot => {
+        firestore().collection('ilanlar').where("type", "==", "ilan").onSnapshot(querySnapshot => {
             querySnapshot.docChanges().forEach(change => {
                 if (change.type == 'added') {
                     console.log('New ilan:', change.doc.data())

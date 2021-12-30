@@ -81,6 +81,7 @@ export default function MyAccountScreen({ navigation }) {
                                 type="material-community"
                                 name="format-list-bulleted-square"
                                 size={25}
+                                onPress={()=>{navigation.navigate('MyDonationScreen')}}
                             />
                             <Text style={styles.menuItemText}>İlanlarım</Text>
                         </View>

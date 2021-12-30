@@ -5,17 +5,20 @@ import HomeHeader from "../Components/HomeHeader";
 import { colors, parameters } from "../Global/styles";
 import firestore from "@react-native-firebase/firestore";
 
-export default function BloodFind({ navigation }) {
+export default function UpdateIlanScreen({ navigation, route }) {
+    const {ilanToUpdate}=route.params
+    const ilanId= ilanToUpdate.id
     const [ilan, setIlan] = useState({
-        isim: '',
-        kan_grubu: '',
-        sehir: '',
-        ilce: '',
-        hastane: '',
-        tel_no: '',
-        aciklama: '',
+        isim: ilanToUpdate.isim,
+        kan_grubu: ilanToUpdate.kan_grubu,
+        sehir: ilanToUpdate.sehir,
+        ilce: ilanToUpdate.ilce,
+        hastane: ilanToUpdate.hastane,
+        tel_no: ilanToUpdate.tel_no,
+        aciklama:ilanToUpdate.aciklama,
         type: 'ilan'
     })
+
     const resetForm = () => {
         setIlan({
             isim: '',
@@ -26,32 +29,21 @@ export default function BloodFind({ navigation }) {
             tel_no: '',
             aciklama: '',
         })
-    }
-
-    const ilanOlustur = async (ilan) => {
-        try {
-            await firestore().collection('ilanlar').add(ilan)
+    } 
+    const ilanGuncelle = async (ilan) => {
+        try{
+            await firestore().collection('ilanlar').doc(ilanId).update(ilan)
             console.log(ilan)
             resetForm()
-            navigation.navigate('HomeScreen')
+            navigation.navigate('Feed')
         } catch (error) {
             console.log(error)
         }
     }
-
-    
     return (
 
         <View style={{ flex: 1 }}>
-            <HomeHeader title="Kan Bul" navigation={navigation} />
-            <View style={styles.kanilani}>
-                <View style={{ alignItems: "center", justifyContent: "center" }}>
-                    <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>KAN İLANI</Text>
-                    <Text style={{ color: "white", fontSize: 11 }}>* Bilgileri eksiksiz doldurmaya dikkat edin.</Text>
-                    <Text style={{ color: "white", fontSize: 11 }}>* Telefonunuzun ulaşılabilir olmasına özen gösterin.</Text>
-                </View>
-
-            </View>
+            <HomeHeader title="İlanı Güncelle" navigation={navigation} />
             <ScrollView>
                 <View style={{ marginTop: 10 }} >
                     <View style={styles.textInput}>
@@ -114,7 +106,7 @@ export default function BloodFind({ navigation }) {
                         <View>
                             <TextInput
                                 value={ilan.aciklama}
-                                onChangeText={(aciklama) => { setIlan({ ...ilan, aciklama: aciklama }) }}
+                                onChangeText={(aciklama) => { setIlan({ ...ilan, aciklama: aciklama  }) }}
                                 multiline
                                 numberOfLines={4}
                                 placeholder="Açıklama"
@@ -123,8 +115,8 @@ export default function BloodFind({ navigation }) {
                     </View>
                     <View style={{ marginBottom: 10 }}>
                         <Button
-                            onPress={() => { ilanOlustur(ilan) }}
-                            title="OLUŞTUR"
+                            onPress={()=>{ilanGuncelle(ilan)}}
+                            title="Güncelle"
                             buttonStyle={parameters.styledButton}
                             titleStyle={parameters.buttonTitle}
                         />

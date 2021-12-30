@@ -42,7 +42,7 @@ export default function WaitingBlood({ navigation }) {
                 if (change.type == 'removed') {
                     console.log('Removed ilan:', change.doc.data())
                 }
-                fetchIlanlar
+                fetchIlanlar()
             })
         })
 

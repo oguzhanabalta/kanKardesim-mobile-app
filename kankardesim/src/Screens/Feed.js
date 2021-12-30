@@ -39,7 +39,7 @@ export default function Feed({navigation}){
                 if(change.type =='removed'){
                     console.log('Removed ilan:', change.doc.data())
                 }
-                fetchIlanlar
+                fetchIlanlar()
             })
         })
 

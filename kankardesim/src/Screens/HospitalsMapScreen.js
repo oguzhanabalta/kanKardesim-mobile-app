@@ -35,7 +35,7 @@ export default function HospitalsMapScreen() {
 					})
 				}}
 				query={{
-					key: "AIzaSyAB5Fl19WDXhFXFTjYV5bE6EHYuDWtoAt4",
+					key: "OAIzaSyAB5Fl19WDXhFXFTjYV5bE6EHYuDWtoAt4Og",
 					language: "en",
 					components: "country:us",
 					types: "establishment",
